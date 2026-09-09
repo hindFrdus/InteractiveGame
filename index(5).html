@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b4f56" />
+  <title>النشاط 1-3-1 | دور الدافعية في تعلّم الكبار</title>
+  <style>
+    :root{
+      --ink:#152a2d;--muted:#64777a;--teal:#0b5961;--teal2:#0d7377;--teal3:#dff1f0;
+      --gold:#d9a83e;--gold2:#f6e7bd;--paper:#fbfbf8;--white:#fff;--line:#d8e1df;
+      --danger:#a94a44;--ok:#2f7b63;--warn:#9a6a16;--shadow:0 10px 28px rgba(13,60,62,.11);--radius:18px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Tajawal","Segoe UI",Tahoma,Arial,sans-serif;background:linear-gradient(180deg,#eef7f5 0,#f8f6ef 48%,#f5f7f6 100%);color:var(--ink);min-height:100vh}
+    button,input,textarea,select{font:inherit} button{cursor:pointer}
+    .shell{max-width:1240px;margin:auto;padding:22px}
+    .hero{background:linear-gradient(135deg,#073f46 0,#0c6067 58%,#0f7171 100%);color:#fff;border-radius:28px;padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;border:55px solid rgba(255,255,255,.06);left:-95px;top:-115px}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);padding:7px 12px;border-radius:999px;font-weight:700;font-size:.88rem}
+    h1{font-size:clamp(1.7rem,4vw,3rem);line-height:1.3;margin:14px 0 8px}.hero p{margin:0;max-width:920px;line-height:1.9;color:#eef9f7}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);padding:8px 12px;border-radius:12px;font-size:.93rem}
+    .panel{background:rgba(255,255,255,.95);border:1px solid rgba(11,89,97,.11);border-radius:var(--radius);box-shadow:0 8px 24px rgba(19,62,64,.07);padding:20px}
+    .panel h2{margin:0 0 12px;font-size:1.18rem;color:var(--teal)}
+    .hidden{display:none!important}.stack{display:grid;gap:14px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.grow{flex:1}
+    .btn{border:0;border-radius:12px;padding:10px 14px;font-weight:800;transition:.18s ease}.btn:hover{transform:translateY(-1px)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+    .btn.primary{background:var(--teal);color:#fff}.btn.gold{background:var(--gold);color:#2f240d}.btn.ghost{background:#eef4f3;color:var(--teal);border:1px solid #d7e5e2}.btn.danger{background:#fff0ee;color:var(--danger);border:1px solid #f1c8c4}
+    label{font-weight:800;color:#365052;font-size:.91rem}.field{display:grid;gap:6px}.input{width:100%;border:1px solid #d8e4e1;border-radius:12px;padding:11px 12px;background:#fff;outline:none;color:var(--ink)}.input:focus{border-color:#67ada5;box-shadow:0 0 0 3px rgba(55,145,132,.11)}
+    .landing{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:18px}.role-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#edf4f2;padding:6px;border-radius:14px}.role-tab{border:0;background:transparent;padding:11px;border-radius:10px;font-weight:900;color:#567}.role-tab.active{background:#fff;color:var(--teal);box-shadow:0 3px 10px rgba(0,0,0,.06)}
+    .setup-warning{background:#fff7df;border:1px solid #ead18b;color:#5f4812;border-radius:14px;padding:13px;line-height:1.8}.setup-warning b{color:#4d390b}
+    .session-card{background:linear-gradient(135deg,#f7fbfa,#fff9eb);border:1px solid #dde8e4;border-radius:16px;padding:16px}.session-code{font-size:2rem;font-weight:900;letter-spacing:3px;color:var(--teal);direction:ltr;text-align:center;background:#fff;border:1px dashed #9abcb5;border-radius:14px;padding:10px}
+    .app-grid{display:grid;grid-template-columns:1.45fr .75fr;gap:16px;margin-top:18px}.instruction{line-height:1.95;color:#31484b}
+    .timer-wrap{display:grid;gap:10px}.timer{font-variant-numeric:tabular-nums;font-size:2.55rem;font-weight:800;color:var(--teal);letter-spacing:1px}.phase-badge{display:inline-block;width:max-content;background:var(--teal3);color:var(--teal);padding:7px 10px;border-radius:999px;font-weight:800;font-size:.9rem}
+    .live{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:800;color:var(--ok)}.live:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 5px rgba(47,123,99,.12)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:#f6faf9;border:1px solid #e1ebe8;border-radius:14px;padding:12px}.stat .n{font-size:1.7rem;font-weight:900;color:var(--teal)}.stat .k{font-size:.82rem;color:var(--muted);font-weight:700}
+    .board{margin-top:16px}.board-head{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:10px}.progress{display:flex;gap:8px;align-items:center;color:var(--muted);font-weight:700}.progressbar{width:160px;height:9px;border-radius:999px;background:#e7eeec;overflow:hidden}.progressbar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#efca6f);transition:width .2s}
+    .overview{position:relative;background:linear-gradient(90deg,#fff1ed 0,#f8f6ee 50%,#e8f6f1 100%);border:1px solid #e1e4dc;border-radius:18px;padding:18px 16px 22px;min-height:160px;overflow:hidden}.scale-labels{display:flex;justify-content:space-between;font-size:.88rem;font-weight:800;color:#4a5f61;margin-bottom:42px}.axis{position:absolute;right:7%;left:7%;top:86px;height:8px;border-radius:999px;background:linear-gradient(90deg,#c46352 0,#d7b75b 48%,#3e9474 100%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+    .marker-layer{position:absolute;right:7%;left:7%;top:57px;height:62px;pointer-events:none}.marker{position:absolute;top:0;transform:translateX(-50%);min-width:34px;height:34px;border-radius:999px;padding:0 8px;display:grid;place-items:center;background:#fff;border:3px solid var(--teal);color:var(--teal);font-weight:900;box-shadow:0 5px 12px rgba(13,72,74,.15);opacity:0;transition:left .18s,opacity .18s}.marker.show{opacity:1}.overview-caption{text-align:center;color:#6e7f80;font-size:.86rem;margin-top:59px}
+    .cards-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.card{background:#fff;border:1px solid #dfe7e5;border-radius:18px;box-shadow:0 7px 20px rgba(19,62,64,.055);padding:15px;display:flex;flex-direction:column;gap:12px;min-height:292px;position:relative;transition:.18s}.card:hover{box-shadow:0 10px 26px rgba(19,62,64,.09);transform:translateY(-1px)}.card.done{border-color:#aed6c6;background:linear-gradient(180deg,#fff,#fbfffd)}
+    .card-no{position:absolute;left:14px;top:14px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--gold2);color:#644b13;font-weight:900;border:1px solid #ead293}.card-text{padding-left:43px;line-height:1.9;font-weight:700;min-height:108px}.mini-labels{display:flex;justify-content:space-between;align-items:center;color:#687a7b;font-size:.76rem;font-weight:700}.range{width:100%;accent-color:var(--teal);cursor:pointer;direction:ltr}.range-row{display:grid;gap:7px;background:#f5f8f7;padding:10px;border-radius:12px;border:1px solid #e4ece9}.status{font-size:.82rem;color:var(--muted)}.status strong{color:var(--teal)}
+    textarea{resize:vertical;min-height:76px;border:1px solid #dce5e3;border-radius:12px;padding:10px;background:#fbfdfc;color:var(--ink);outline:none;line-height:1.7}textarea:focus{border-color:#6ab4aa;box-shadow:0 0 0 3px rgba(55,145,132,.12)}
+    .save-line{display:flex;justify-content:space-between;gap:8px;font-size:.78rem;color:var(--muted)}.save-ok{color:var(--ok);font-weight:800}
+    .justifications{margin-top:16px}.just-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.segmented{display:flex;background:#edf4f2;border-radius:12px;padding:4px;gap:4px}.segmented button{border:0;background:transparent;padding:8px 11px;border-radius:9px;font-weight:800;color:#577}.segmented button.active{background:#fff;color:var(--teal);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .filter-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}.response-list{display:grid;gap:10px}.response-card{border:1px solid #e0e8e6;background:#fbfdfc;border-radius:14px;padding:13px}.response-card .top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.person{font-weight:900;color:#26484b}.badge{display:inline-flex;align-items:center;border-radius:999px;padding:5px 8px;font-size:.76rem;font-weight:900;background:#e9f4f1;color:var(--teal)}.badge.off{background:#f0f1f1;color:#7a8586}.reason{margin-top:8px;line-height:1.75;color:#40585b;background:#fff;border-right:3px solid var(--gold);padding:8px 10px;border-radius:8px}.no-reason{color:#899596;font-style:italic}.answer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.answer-mini{border:1px solid #e0e8e6;border-radius:12px;padding:10px;background:#fff}.answer-mini .q{font-weight:900;color:var(--teal);margin-bottom:5px}.answer-mini .r{font-size:.88rem;line-height:1.65;color:#506366}
+    .participant-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.participant-chip{background:#f3f8f7;border:1px solid #dce8e5;padding:6px 9px;border-radius:999px;font-size:.8rem;font-weight:800;color:#456}.participant-chip.online{border-color:#a9d3c5;color:var(--ok)}
+    .bottom-actions{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0}.hint{color:var(--muted);font-size:.9rem}footer{padding:8px 4px 30px;text-align:center;color:#758587;font-size:.82rem;line-height:1.8}
+    .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:#183d40;color:#fff;padding:11px 16px;border-radius:12px;opacity:0;pointer-events:none;transition:.2s;z-index:50;box-shadow:var(--shadow)}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media(max-width:960px){.landing,.app-grid{grid-template-columns:1fr}.cards-wrap{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.shell{padding:12px}.hero{padding:22px 18px;border-radius:20px}.cards-wrap{grid-template-columns:1fr}.panel{padding:15px}.card{min-height:auto}.controls .btn{flex:1}.stats{grid-template-columns:1fr 1fr}.filter-grid,.answer-grid{grid-template-columns:1fr}.progressbar{width:110px}.session-code{font-size:1.55rem}}
+    @media print{body{background:#fff}.hero,.landing,.timer-wrap,.bottom-actions,footer,.segmented,.filter-grid .field:first-child{display:none!important}.panel,.response-card{box-shadow:none}.shell{max-width:none}.justifications{display:block!important}}
+  </style>
+  <script src="firebase-config.js"></script>
+</head>
+<body>
+<main class="shell">
+  <section class="hero">
+    <span class="eyebrow">نشاط تفاعلي متزامن • 1-3-1</span>
+    <h1>دور الدافعية في تعلّم الكبار</h1>
+    <p>يصنّف كل مشارك مواقف التعلّم المهني على متصل الدافعية ويكتب مبرره، بينما تظهر للميسّر إجابات المشاركين ومبرراتهم بصورة حية ومخصصة لكل مشارك.</p>
+    <div class="meta"><span class="pill">20 دقيقة</span><span class="pill">5 دقائق قراءة فردية</span><span class="pill">15 دقيقة مناقشة جماعية</span><span class="pill">9 بطاقات</span><span class="pill">مشاركة متزامنة</span></div>
+  </section>
+
+  <section id="landing" class="landing">
+    <div class="panel stack">
+      <div>
+        <h2>الدخول إلى النشاط</h2>
+        <div class="role-tabs">
+          <button class="role-tab active" id="hostTab">ميسّر الجلسة</button>
+          <button class="role-tab" id="participantTab">مشارك</button>
+        </div>
+      </div>
+
+      <div id="hostForm" class="stack">
+        <div class="instruction">أنشئ جلسة جديدة، ثم اعرض رمز الجلسة على المشاركين. ستظهر لك المبررات والتصنيفات فور إرسالها.</div>
+        <button class="btn primary" id="createRoomBtn">إنشاء جلسة جديدة</button>
+      </div>
+
+      <div id="participantForm" class="stack hidden">
+        <div class="field"><label for="participantName">اسم المشارك</label><input id="participantName" class="input" maxlength="50" placeholder="اكتب اسمك" autocomplete="name"></div>
+        <div class="field"><label for="roomCodeInput">رمز الجلسة</label><input id="roomCodeInput" class="input" maxlength="8" placeholder="مثال: A7K3Q9" style="text-transform:uppercase;direction:ltr;text-align:center;font-weight:900;letter-spacing:2px"></div>
+        <button class="btn primary" id="joinRoomBtn">الانضمام إلى الجلسة</button>
+      </div>
+
+      <div id="firebaseWarning" class="setup-warning hidden"><b>يلزم إعداد Firebase للتشغيل المتزامن.</b><br>أكمل بيانات <code>firebase-config.js</code> ثم انشر الملفات على GitHub Pages. توجد الخطوات كاملة في ملف README.</div>
+      <button id="localPreviewBtn" class="btn ghost hidden">معاينة فردية محلية</button>
+    </div>
+
+    <aside class="panel stack">
+      <h2>طريقة العمل</h2>
+      <div class="instruction">
+        <b>الميسّر:</b> ينشئ رمزًا للجلسة، يدير المؤقت، ويتابع المشاركين والمبررات لحظيًا.<br><br>
+        <b>المشارك:</b> يدخل الاسم ورمز الجلسة، ثم يصنّف كل بطاقة ويكتب مبرره. تُحفظ الإجابات تلقائيًا وتظهر لدى الميسّر مباشرة.
+      </div>
+      <div class="session-card">
+        <div class="hint">عرض المبررات لدى الميسّر متاح بطريقتين:</div>
+        <div style="margin-top:8px;font-weight:900;color:var(--teal)">حسب المشارك • حسب البطاقة</div>
+      </div>
+    </aside>
+  </section>
+
+  <section id="app" class="hidden">
+    <section class="app-grid">
+      <div class="panel">
+        <div class="row" style="justify-content:space-between;align-items:flex-start">
+          <div>
+            <h2 id="appTitle">الجلسة</h2>
+            <div id="appInstruction" class="instruction"></div>
+          </div>
+          <span class="live" id="liveBadge">متصل</span>
+        </div>
+        <div id="sessionInfo" class="participant-strip"></div>
+      </div>
+
+      <aside class="panel timer-wrap" aria-live="polite">
+        <span class="phase-badge" id="phaseBadge">بانتظار بدء النشاط</span>
+        <div class="timer" id="timer">05:00</div>
+        <div class="controls" id="hostTimerControls">
+          <button class="btn primary" id="startBtn">ابدأ</button>
+          <button class="btn ghost" id="pauseBtn">إيقاف مؤقت</button>
+          <button class="btn gold" id="nextPhaseBtn">المرحلة الجماعية</button>
+        </div>
+        <div class="hint" id="timerHint">المؤقت متزامن لجميع المشاركين.</div>
+      </aside>
+    </section>
+
+    <section id="hostDashboard" class="hidden">
+      <section class="panel board">
+        <div class="board-head">
+          <div><h2 style="margin-bottom:4px">المشهد الجماعي لمتصل الدافعية</h2><div class="hint">كل علامة تمثل متوسط تصنيفات المشاركين الذين أجابوا عن البطاقة.</div></div>
+          <div class="stats">
+            <div class="stat"><div class="n" id="participantsCount">0</div><div class="k">مشارك</div></div>
+            <div class="stat"><div class="n" id="onlineCount">0</div><div class="k">متصل الآن</div></div>
+            <div class="stat"><div class="n" id="answersCount">0</div><div class="k">تصنيف مكتمل</div></div>
+          </div>
+        </div>
+        <div class="overview">
+          <div class="scale-labels"><span>دافعية مرتفعة جدًا</span><span>دافعية منخفضة جدًا</span></div>
+          <div class="axis"></div><div class="marker-layer" id="hostMarkerLayer"></div>
+          <div class="overview-caption">يتحدث العرض تلقائيًا عند وصول إجابات جديدة.</div>
+        </div>
+      </section>
+
+      <section class="panel justifications" id="justificationsPanel">
+        <div class="just-head">
+          <div><h2 style="margin-bottom:4px">مبررات اختيارات المشاركين</h2><div class="hint">اختر طريقة العرض المناسبة للحوار الجماعي.</div></div>
+          <div class="row">
+            <div class="segmented">
+              <button class="active" id="byParticipantBtn">حسب المشارك</button>
+              <button id="byCardBtn">حسب البطاقة</button>
+            </div>
+            <button class="btn ghost" id="exportBtn">تنزيل CSV</button>
+            <button class="btn ghost" onclick="window.print()">طباعة</button>
+          </div>
+        </div>
+        <div class="filter-grid">
+          <div class="field" id="participantFilterWrap"><label for="participantSelect">المشارك</label><select id="participantSelect" class="input"></select></div>
+          <div class="field hidden" id="cardFilterWrap"><label for="cardSelect">البطاقة</label><select id="cardSelect" class="input"></select></div>
+          <div class="field"><label for="nameFilter">بحث بالاسم</label><input id="nameFilter" class="input" placeholder="اكتب جزءًا من الاسم"></div>
+        </div>
+        <div id="responseList" class="response-list"></div>
+      </section>
+    </section>
+
+    <section id="participantDashboard" class="hidden">
+      <section class="panel board">
+        <div class="board-head">
+          <div><h2 style="margin-bottom:4px">متصل الدافعية</h2><div class="hint">حرّك مؤشر كل بطاقة ثم اكتب مبررك.</div></div>
+          <div class="progress"><span id="progressText">0 من 9</span><div class="progressbar"><span id="progressFill"></span></div></div>
+        </div>
+        <div class="overview">
+          <div class="scale-labels"><span>دافعية مرتفعة جدًا</span><span>دافعية منخفضة جدًا</span></div>
+          <div class="axis"></div><div class="marker-layer" id="participantMarkerLayer"></div>
+          <div class="overview-caption">تُرسل التصنيفات والمبررات إلى لوحة الميسّر تلقائيًا.</div>
+        </div>
+      </section>
+      <section class="cards-wrap" id="cards"></section>
+      <div class="bottom-actions"><div class="hint" id="participantSaveStatus">يتم الحفظ تلقائيًا.</div><button class="btn danger" id="resetParticipantBtn">إعادة ضبط إجاباتي</button></div>
+    </section>
+  </section>
+
+  <footer>النشاط مصمم للنشر على GitHub Pages. التشغيل المتزامن بين أجهزة متعددة يعتمد على Firebase Realtime Database مع تسجيل دخول مجهول. محتوى البطاقات مستند إلى الحقيبة التدريبية المرفوعة في المحادثة؛ تُراعى حقوق الجهة المالكة للمحتوى وشروط استخدام الحقيبة.</footer>
+</main>
+<div class="toast" id="toast"></div>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
+  import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
+  import { getDatabase, ref, set, update, get, onValue, onDisconnect, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js';
+
+  const cardsData = [
+    {id:1,text:'يُدعى المتدربون إلى تحديد أولوياتهم الخاصة للتطوير قبل الجلسة، ثم مراجعتها في نهايتها.'},
+    {id:2,text:'يُحدَّد للمتدربين بدقة ما ينبغي لهم فعله، والترتيب الذي ينبغي اتباعه، وموعد تنفيذ كل خطوة.'},
+    {id:3,text:'يُطلب من المتدربين التأمل في خبراتهم السابقة في تحسين المدارس، والاستفادة منها في تحليل إطار جديد.'},
+    {id:4,text:'يعمل المتدربون في مجموعات على دراسة حالة واقعية من إحدى مدارسهم واقتراح حلول لها.'},
+    {id:5,text:'يُحكم على نجاح التعلّم بمدى قدرة المتدربين على استرجاع المعلومات بدقة في نهاية الجلسة.'},
+    {id:6,text:'يتيح المدرب للمتدربين مسارات مختلفة للتعلّم، وفقًا لمعارفهم السابقة وسياقات عملهم.'},
+    {id:7,text:'يركّز التعلّم على تحدٍّ قائم يتمثل في تحسين جودة التوجيه المهني للمعلمين في المدارس، ويغادر المتدربون الجلسة بخطة عمل قابلة للتنفيذ.'},
+    {id:8,text:'يستكمل المتدربون ورقة عمل تتضمن إجابة صحيحة واحدة لكل سؤال، مع إتاحة مجال محدود للتفسير أو إصدار الحكم المهني.'},
+    {id:9,text:'يبدأ المدرب بتوضيح أهمية الجلسة، وصلتها بالمسؤوليات الحالية للقادة، والمشكلة العملية التي ستساعدهم على معالجتها.'}
+  ];
+
+  let firebaseApp=null, auth=null, db=null, currentUser=null;
+  let role='host', roomCode='', participantName='', localPreview=false;
+  let participantsCache={}, answersCache={}, controlCache={phase:0,running:false,remaining:300};
+  let participantTouched=new Set(), noteTimers={}, timerTicker=null, viewMode='participant';
+
+  const $ = id => document.getElementById(id);
+  function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+  function escapeHtml(str=''){return String(str).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+  function labelFor(v){v=Number(v);if(v>=85)return'مرتفعة جدًا';if(v>=65)return'مرتفعة';if(v>=40)return'متوسطة';if(v>=20)return'منخفضة';return'منخفضة جدًا'}
+  function hasFirebaseConfig(){const c=window.FIREBASE_CONFIG||{};return !!(c.apiKey&&c.authDomain&&c.databaseURL&&c.projectId&&c.appId&&!String(c.apiKey).includes('ضع_'))}
+
+  async function initFirebase(){
+    if(!hasFirebaseConfig()) return false;
+    if(firebaseApp) return true;
+    firebaseApp=initializeApp(window.FIREBASE_CONFIG); auth=getAuth(firebaseApp); db=getDatabase(firebaseApp);
+    const cred=await signInAnonymously(auth); currentUser=cred.user; return true;
+  }
+
+  if(!hasFirebaseConfig()){$('firebaseWarning').classList.remove('hidden');$('localPreviewBtn').classList.remove('hidden')}
+
+  $('hostTab').onclick=()=>setRole('host'); $('participantTab').onclick=()=>setRole('participant');
+  function setRole(r){role=r;$('hostTab').classList.toggle('active',r==='host');$('participantTab').classList.toggle('active',r==='participant');$('hostForm').classList.toggle('hidden',r!=='host');$('participantForm').classList.toggle('hidden',r!=='participant')}
+
+  function makeRoomCode(){const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<6;i++)s+=chars[Math.floor(Math.random()*chars.length)];return s}
+
+  $('createRoomBtn').onclick=async()=>{
+    try{
+      if(!await initFirebase()){toast('أكمل إعداد Firebase أولًا');return}
+      roomCode=makeRoomCode();
+      const metaRef=ref(db,`rooms/${roomCode}/meta`);await set(metaRef,{hostUid:currentUser.uid,createdAt:serverTimestamp(),title:'دور الدافعية في تعلم الكبار'});
+      await set(ref(db,`rooms/${roomCode}/control`),{phase:0,running:false,remaining:300,updatedAt:serverTimestamp()});
+      launchHost();
+    }catch(e){console.error(e);toast('تعذر إنشاء الجلسة. تحقق من إعداد Firebase')}
+  };
+
+  $('joinRoomBtn').onclick=async()=>{
+    participantName=$('participantName').value.trim();roomCode=$('roomCodeInput').value.trim().toUpperCase();
+    if(!participantName){toast('اكتب اسم المشارك');return} if(!roomCode){toast('اكتب رمز الجلسة');return}
+    try{
+      if(!await initFirebase()){toast('أكمل إعداد Firebase أولًا');return}
+      const snap=await get(ref(db,`rooms/${roomCode}/meta`));if(!snap.exists()){toast('رمز الجلسة غير موجود');return}
+      await set(ref(db,`rooms/${roomCode}/participants/${currentUser.uid}`),{name:participantName,online:true,joinedAt:serverTimestamp(),lastSeen:serverTimestamp()});
+      onDisconnect(ref(db,`rooms/${roomCode}/participants/${currentUser.uid}`)).update({online:false,lastSeen:serverTimestamp()});
+      launchParticipant();
+    }catch(e){console.error(e);toast('تعذر الانضمام. تحقق من الاتصال وإعداد Firebase')}
+  };
+
+  $('localPreviewBtn').onclick=()=>{localPreview=true;role='participant';participantName='معاينة محلية';roomCode='LOCAL';launchParticipant()};
+
+  function commonLaunch(){
+    $('landing').classList.add('hidden');$('app').classList.remove('hidden');$('appTitle').textContent=role==='host'?'لوحة الميسّر':'مساحة المشارك';
+    $('liveBadge').textContent=localPreview?'معاينة محلية':'متصل لحظيًا';
+    $('sessionInfo').innerHTML=`<span class="participant-chip">رمز الجلسة: <b style="direction:ltr">${escapeHtml(roomCode)}</b></span>${role==='participant'?`<span class="participant-chip">المشارك: ${escapeHtml(participantName)}</span>`:''}`;
+  }
+
+  function launchHost(){
+    role='host';commonLaunch();$('hostDashboard').classList.remove('hidden');$('participantDashboard').classList.add('hidden');$('hostTimerControls').classList.remove('hidden');
+    $('appInstruction').innerHTML=`اعرض الرمز <b style="font-size:1.15rem;color:var(--teal);direction:ltr">${escapeHtml(roomCode)}</b> للمشاركين. استخدم لوحة المبررات لعرض إجابة كل مشارك بصورة مستقلة أو لمقارنة مبررات بطاقة واحدة.`;
+    buildHostMarkers();buildCardSelect();listenHostData();listenControl();
+  }
+
+  async function launchParticipant(){
+    role='participant';commonLaunch();$('participantDashboard').classList.remove('hidden');$('hostDashboard').classList.add('hidden');$('hostTimerControls').classList.add('hidden');
+    $('timerHint').textContent=localPreview?'مؤقت المعاينة محلي.':'يتحكم الميسّر بالمؤقت ويظهر هنا متزامنًا.';
+    $('appInstruction').innerHTML='<b>1.</b> اقرأ البطاقات بصورة فردية وحدد موضع كل بطاقة على المتصل.<br><b>2.</b> اكتب مبررًا موجزًا لاختيارك.<br><b>3.</b> في المرحلة الجماعية ناقش مواضع الاختلاف مع زملائك.';
+    let existing={};
+    if(!localPreview){const snap=await get(ref(db,`rooms/${roomCode}/answers/${currentUser.uid}`));existing=snap.val()||{};listenControl()}
+    else{existing=JSON.parse(localStorage.getItem('motivationLocalPreview')||'{}');setupLocalTimer()}
+    buildParticipantCards(existing);
+  }
+
+  function buildParticipantCards(existing){
+    const cardsEl=$('cards'), layer=$('participantMarkerLayer');cardsEl.innerHTML='';layer.innerHTML='';participantTouched=new Set();
+    cardsData.forEach(c=>{
+      const data=existing[c.id]||{};const value=Number.isFinite(Number(data.value))?Number(data.value):50;const note=data.note||'';const touched=!!data.touched;if(touched)participantTouched.add(c.id);
+      const marker=document.createElement('div');marker.className='marker'+(touched?' show':'');marker.id='pmarker-'+c.id;marker.textContent=c.id;layer.appendChild(marker);if(touched)updateParticipantMarker(c.id,value);
+      const card=document.createElement('article');card.className='card'+(touched?' done':'');card.dataset.id=c.id;card.innerHTML=`
+        <span class="card-no">${c.id}</span><div class="card-text">${c.text}</div>
+        <div class="range-row"><div class="mini-labels"><span>مرتفعة جدًا</span><span>منخفضة جدًا</span></div>
+        <input class="range" type="range" min="0" max="100" value="${value}" aria-label="موضع البطاقة ${c.id}"><div class="status">الموضع: <strong>${touched?labelFor(value):'لم يُحسم بعد'}</strong></div></div>
+        <textarea maxlength="500" placeholder="اكتب مبرر اختيارك..." aria-label="مبرر البطاقة ${c.id}">${escapeHtml(note)}</textarea>
+        <div class="save-line"><span>البطاقة ${c.id}</span><span class="saveState ${touched?'save-ok':''}">${touched?'محفوظة':'بانتظار التصنيف'}</span></div>`;
+      cardsEl.appendChild(card);
+      const range=card.querySelector('.range'), ta=card.querySelector('textarea'), status=card.querySelector('.status strong'), saveState=card.querySelector('.saveState');
+      range.addEventListener('input',()=>{participantTouched.add(c.id);card.classList.add('done');status.textContent=labelFor(range.value);saveState.textContent='جارٍ الحفظ...';saveState.classList.remove('save-ok');updateParticipantMarker(c.id,Number(range.value));updateParticipantProgress();saveParticipantAnswer(c.id,Number(range.value),ta.value.trim(),true,saveState)});
+      ta.addEventListener('input',()=>{saveState.textContent='جارٍ الحفظ...';saveState.classList.remove('save-ok');clearTimeout(noteTimers[c.id]);noteTimers[c.id]=setTimeout(()=>saveParticipantAnswer(c.id,Number(range.value),ta.value.trim(),participantTouched.has(c.id),saveState),450)});
+    });updateParticipantProgress();
+  }
+
+  async function saveParticipantAnswer(id,value,note,touched,saveEl){
+    try{
+      if(localPreview){const all=getParticipantLocalState();localStorage.setItem('motivationLocalPreview',JSON.stringify(all));}
+      else await update(ref(db,`rooms/${roomCode}/answers/${currentUser.uid}/${id}`),{value,note,touched,updatedAt:serverTimestamp()});
+      saveEl.textContent=touched?'محفوظة':'تم حفظ المبرر';saveEl.classList.add('save-ok');$('participantSaveStatus').textContent=`تم الحفظ تلقائيًا • ${participantTouched.size} من 9 مصنفة`;
+    }catch(e){console.error(e);saveEl.textContent='تعذر الحفظ';saveEl.classList.remove('save-ok')}
+  }
+
+  function getParticipantLocalState(){const out={};document.querySelectorAll('#cards .card').forEach(card=>{const id=Number(card.dataset.id);out[id]={value:Number(card.querySelector('.range').value),note:card.querySelector('textarea').value.trim(),touched:participantTouched.has(id)}});return out}
+  function updateParticipantMarker(id,value){const m=$('pmarker-'+id);m.style.left=`${value}%`;m.classList.add('show');m.title=`البطاقة ${id}: ${labelFor(value)}`}
+  function updateParticipantProgress(){const n=participantTouched.size;$('progressText').textContent=`${n} من 9`;$('progressFill').style.width=`${(n/9)*100}%`}
+
+  $('resetParticipantBtn').onclick=async()=>{
+    if(!confirm('هل تريد إعادة ضبط تصنيفاتك ومبرراتك؟'))return;
+    if(localPreview){localStorage.removeItem('motivationLocalPreview');buildParticipantCards({});return}
+    try{await set(ref(db,`rooms/${roomCode}/answers/${currentUser.uid}`),null);buildParticipantCards({});toast('تمت إعادة ضبط إجاباتك')}catch(e){toast('تعذر إعادة الضبط')}
+  };
+
+  function buildHostMarkers(){const layer=$('hostMarkerLayer');layer.innerHTML='';cardsData.forEach(c=>{const m=document.createElement('div');m.className='marker';m.id='hmarker-'+c.id;m.textContent=c.id;layer.appendChild(m)})}
+  function buildCardSelect(){$('cardSelect').innerHTML=cardsData.map(c=>`<option value="${c.id}">البطاقة ${c.id}</option>`).join('')}
+
+  function listenHostData(){
+    onValue(ref(db,`rooms/${roomCode}/participants`),snap=>{participantsCache=snap.val()||{};renderHostStats();refreshParticipantSelect();renderResponses()});
+    onValue(ref(db,`rooms/${roomCode}/answers`),snap=>{answersCache=snap.val()||{};renderHostStats();renderHostAggregate();renderResponses()});
+  }
+
+  function renderHostStats(){
+    const ids=Object.keys(participantsCache);$('participantsCount').textContent=ids.length;$('onlineCount').textContent=ids.filter(id=>participantsCache[id]?.online).length;
+    let total=0;Object.values(answersCache).forEach(a=>Object.values(a||{}).forEach(x=>{if(x?.touched)total++}));$('answersCount').textContent=total;
+    $('sessionInfo').innerHTML=`<span class="participant-chip online">رمز الجلسة: <b style="direction:ltr">${escapeHtml(roomCode)}</b></span>${ids.map(id=>`<span class="participant-chip ${participantsCache[id]?.online?'online':''}">${escapeHtml(participantsCache[id]?.name||'مشارك')} • ${countTouched(id)}/9</span>`).join('')}`;
+  }
+  function countTouched(uid){return Object.values(answersCache[uid]||{}).filter(a=>a?.touched).length}
+
+  function renderHostAggregate(){
+    cardsData.forEach(c=>{const vals=[];Object.keys(participantsCache).forEach(uid=>{const a=answersCache[uid]?.[c.id];if(a?.touched&&Number.isFinite(Number(a.value)))vals.push(Number(a.value))});const m=$('hmarker-'+c.id);if(!m)return;if(!vals.length){m.classList.remove('show');return}const avg=vals.reduce((a,b)=>a+b,0)/vals.length;m.style.left=`${avg}%`;m.textContent=`${c.id} · ${vals.length}`;m.title=`البطاقة ${c.id}: متوسط ${Math.round(avg)}% من ${vals.length} مشارك`;m.classList.add('show')})
+  }
+
+  function refreshParticipantSelect(){
+    const select=$('participantSelect'),prev=select.value;const ids=Object.keys(participantsCache).sort((a,b)=>(participantsCache[a]?.name||'').localeCompare(participantsCache[b]?.name||'','ar'));
+    select.innerHTML=ids.length?ids.map(uid=>`<option value="${uid}">${escapeHtml(participantsCache[uid]?.name||'مشارك')} — ${countTouched(uid)}/9</option>`).join(''):'<option value="">لا يوجد مشاركون بعد</option>';
+    if(ids.includes(prev))select.value=prev;
+  }
+
+  $('byParticipantBtn').onclick=()=>setViewMode('participant');$('byCardBtn').onclick=()=>setViewMode('card');
+  function setViewMode(mode){viewMode=mode;$('byParticipantBtn').classList.toggle('active',mode==='participant');$('byCardBtn').classList.toggle('active',mode==='card');$('participantFilterWrap').classList.toggle('hidden',mode!=='participant');$('cardFilterWrap').classList.toggle('hidden',mode!=='card');renderResponses()}
+  $('participantSelect').onchange=renderResponses;$('cardSelect').onchange=renderResponses;$('nameFilter').oninput=renderResponses;
+
+  function renderResponses(){
+    if(role!=='host')return;const list=$('responseList'),query=$('nameFilter').value.trim().toLowerCase();list.innerHTML='';
+    if(viewMode==='participant'){
+      const uid=$('participantSelect').value;if(!uid||!participantsCache[uid]){list.innerHTML='<div class="hint">بانتظار انضمام المشاركين.</div>';return}
+      const p=participantsCache[uid],ans=answersCache[uid]||{};if(query&&!String(p.name||'').toLowerCase().includes(query)){list.innerHTML='<div class="hint">لا توجد نتيجة مطابقة للبحث.</div>';return}
+      const wrap=document.createElement('div');wrap.className='response-card';wrap.innerHTML=`<div class="top"><div><div class="person">${escapeHtml(p.name||'مشارك')}</div><div class="hint">${countTouched(uid)} من 9 بطاقات مصنفة</div></div><span class="badge ${p.online?'':'off'}">${p.online?'متصل':'غير متصل'}</span></div><div class="answer-grid" style="margin-top:12px">${cardsData.map(c=>{const a=ans[c.id];return `<div class="answer-mini"><div class="q">البطاقة ${c.id} ${a?.touched?`• ${labelFor(a.value)} (${Math.round(a.value)}%)`:'• لم تُصنّف'}</div><div class="r ${a?.note?'':'no-reason'}">${a?.note?escapeHtml(a.note):'لا يوجد مبرر مكتوب بعد'}</div></div>`}).join('')}</div>`;list.appendChild(wrap);
+    }else{
+      const cardId=Number($('cardSelect').value||1);const matching=Object.keys(participantsCache).filter(uid=>!query||String(participantsCache[uid]?.name||'').toLowerCase().includes(query));
+      if(!matching.length){list.innerHTML='<div class="hint">لا توجد نتائج مطابقة.</div>';return}
+      matching.sort((a,b)=>(participantsCache[a]?.name||'').localeCompare(participantsCache[b]?.name||'','ar')).forEach(uid=>{const p=participantsCache[uid],a=answersCache[uid]?.[cardId];const el=document.createElement('div');el.className='response-card';el.innerHTML=`<div class="top"><div class="person">${escapeHtml(p.name||'مشارك')}</div><span class="badge ${p.online?'':'off'}">${a?.touched?`${labelFor(a.value)} • ${Math.round(a.value)}%`:'لم تُصنّف'}</span></div><div class="reason ${a?.note?'':'no-reason'}">${a?.note?escapeHtml(a.note):'لا يوجد مبرر مكتوب بعد'}</div>`;list.appendChild(el)})
+    }
+  }
+
+  $('exportBtn').onclick=()=>{
+    const rows=[['المشارك','البطاقة','التصنيف','النسبة','المبرر']];Object.keys(participantsCache).forEach(uid=>{cardsData.forEach(c=>{const a=answersCache[uid]?.[c.id]||{};rows.push([participantsCache[uid]?.name||'مشارك',c.id,a.touched?labelFor(a.value):'لم تُصنّف',a.touched?Math.round(a.value):'',a.note||''])})});
+    const csv='\uFEFF'+rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`motivation-${roomCode}.csv`;a.click();URL.revokeObjectURL(url)
+  };
+
+  function listenControl(){
+    onValue(ref(db,`rooms/${roomCode}/control`),snap=>{controlCache=snap.val()||{phase:0,running:false,remaining:300};renderTimerFromControl()});
+    if(timerTicker)clearInterval(timerTicker);timerTicker=setInterval(renderTimerFromControl,500)
+  }
+  function secondsLeft(c){if(!c)return 300;if(c.running&&c.endsAt)return Math.max(0,Math.ceil((c.endsAt-Date.now())/1000));return Number.isFinite(Number(c.remaining))?Number(c.remaining):(c.phase===2?900:300)}
+  function renderTimerFromControl(){const c=controlCache||{};const sec=secondsLeft(c);$('timer').textContent=`${String(Math.floor(sec/60)).padStart(2,'0')}:${String(sec%60).padStart(2,'0')}`;let text='بانتظار بدء النشاط';if(c.phase===1)text='المرحلة الفردية • 5 دقائق';if(c.phase===2)text='المرحلة الجماعية • 15 دقيقة';if(c.phase===3)text='انتهى النشاط';$('phaseBadge').textContent=text}
+
+  async function writeControl(next){if(role!=='host'||localPreview)return;await update(ref(db,`rooms/${roomCode}/control`),{...next,updatedAt:serverTimestamp()})}
+  $('startBtn').onclick=async()=>{if(role!=='host')return;const sec=secondsLeft(controlCache);const phase=controlCache.phase||1;await writeControl({phase,running:true,remaining:sec,endsAt:Date.now()+sec*1000});toast('بدأ المؤقت المتزامن')};
+  $('pauseBtn').onclick=async()=>{if(role!=='host')return;const sec=secondsLeft(controlCache);await writeControl({running:false,remaining:sec,endsAt:null});toast('تم إيقاف المؤقت مؤقتًا')};
+  $('nextPhaseBtn').onclick=async()=>{if(role!=='host')return;await writeControl({phase:2,running:false,remaining:900,endsAt:null});toast('تم الانتقال إلى المرحلة الجماعية')};
+
+  function setupLocalTimer(){let phase=1,seconds=300,running=false;controlCache={phase,running,remaining:seconds};renderTimerFromControl();$('phaseBadge').textContent='معاينة فردية • 5 دقائق';}
+</script>
+</body>
+</html>
